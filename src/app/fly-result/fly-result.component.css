@@ -1,0 +1,9 @@
+.currency-content{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.currency-content span{
+    cursor: pointer;
+    margin: 3px;
+}

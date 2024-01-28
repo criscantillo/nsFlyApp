@@ -1,0 +1,37 @@
+<div class="content">
+    <div class="lg:mb-4 p-2">
+        <label 
+            class="block text-gray-700 text-sm font-bold mb-2" for="departure">
+            Origen
+        </label>
+        <input 
+            maxlength="3"
+            [(ngModel)]="departure"
+            class="upper shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            id="departure" type="text" placeholder="MZL" />
+    </div>
+    <div class="lg:mb-4 p-2">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="arrive">
+            Destino
+        </label>
+        <input 
+            maxlength="3"
+            [(ngModel)]="arrive"
+            class="upper shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            id="arrive" type="text" placeholder="BOG" />
+    </div>
+    <div class="lg:mt-6 p-2 sm:mt-1 md:mt-1">
+        <button 
+            (click)="sendSearchFly()"
+            type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Buscar
+        </button>
+    </div>
+</div>
+<div class="content-error">
+    @if(!validInput){
+        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            {{messageError}}
+        </span>
+    }
+</div>
