@@ -9,8 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './fly-search.component.css'
 })
 export class FlySearchComponent {
-  departure:string = '';
-  arrive:string= '';
+  departure:string = 'MZL';
+  arrive:string= 'BOG';
   validInput:boolean = false;
   messageError:string='';
 

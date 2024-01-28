@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FlySearchComponent } from './fly-search/fly-search.component';
 import { FlyResultComponent } from './fly-result/fly-result.component';
-import { CurrencyService } from './services/currency.service';
 import { FlySearchService } from './services/fly-search.service';
 
 @Component({
@@ -14,27 +13,12 @@ import { FlySearchService } from './services/fly-search.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   currencies:any;
   flights:any;
   rotatePlaneClass='';
-  title = 'nsFlyApp';
 
-  constructor(
-    private currencyService: CurrencyService,
-    private flyService: FlySearchService
-    ) {}
-
-  ngOnInit(): void {
-    this.getCurrencies();
-  }
-
-  getCurrencies(){
-    this.currencyService.getCurrencies()
-    .subscribe(response => {
-      this.currencies = response;
-    });
-  }
+  constructor(private flyService: FlySearchService) {}
 
   getFlights(searchData: any){
     this.rotatePlaneClass = 'rotate-plane';
@@ -43,6 +27,8 @@ export class AppComponent implements OnInit{
     .subscribe(response => {
       this.flights = response;
       this.rotatePlaneClass = '';
+
+      console.log(this.flights);
     });
   }
 
